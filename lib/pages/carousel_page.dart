@@ -54,59 +54,67 @@ class _CarouselPageState extends State<CarouselPage> with TickerProviderStateMix
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          body: Column(
-        children: <Widget>[
-          CarouselSlider(
-            options: CarouselOptions(
-              height: 650.0,
-              autoPlay: false,
-              autoPlayInterval: Duration(seconds: 3),
-              autoPlayAnimationDuration: Duration(milliseconds: 800),
-              autoPlayCurve: Curves.fastOutSlowIn,
-              pauseAutoPlayOnTouch: true,
-              aspectRatio: 2.0,
-              onPageChanged: (index, reason) {
-                setState(() {
-                  _currentIndex = index;
-                });
-              },
+        body: Column(
+          children: <Widget>[
+            Flexible(
+              child: CarouselSlider(
+                options: CarouselOptions(
+                  height: 650.0,
+                  autoPlay: false,
+                  autoPlayInterval: Duration(seconds: 3),
+                  autoPlayAnimationDuration: Duration(milliseconds: 800),
+                  autoPlayCurve: Curves.fastOutSlowIn,
+                  pauseAutoPlayOnTouch: true,
+                  aspectRatio: 2.0,
+                  onPageChanged: (index, reason) {
+                    setState(() {
+                      _currentIndex = index;
+                    });
+                  },
+                ),
+                items: cardList.map((card) {
+                  return Builder(builder: (BuildContext context) {
+                    return Container(
+                      height: MediaQuery.of(context).size.height * 0.30,
+                      width: MediaQuery.of(context).size.width,
+                      child: Card(
+                        color: CustomColorScheme.primaryColor,
+                        child: card,
+                      ),
+                    );
+                  });
+                }).toList(),
+              ),
             ),
-            items: cardList.map((card) {
-              return Builder(builder: (BuildContext context) {
-                return Container(
-                  height: MediaQuery.of(context).size.height * 0.30,
-                  width: MediaQuery.of(context).size.width,
-                  child: Card(
-                    color: CustomColorScheme.primaryColor,
-                    child: card,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: map<Widget>(cardList, (index, url) {
+                return Flexible(
+                  child: Container(
+                    width: 10.0,
+                    height: 10.0,
+                    margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: _currentIndex == index ? CustomColorScheme.primaryColor : Colors.grey,
+                    ),
                   ),
                 );
-              });
-            }).toList(),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: map<Widget>(cardList, (index, url) {
-              return Container(
-                width: 10.0,
-                height: 10.0,
-                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: _currentIndex == index ? CustomColorScheme.primaryColor : Colors.grey,
-                ),
-              );
-            }),
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 10),
-            child: CustomElevatedButton(
-              onPressed: () => this.onContinuePressed(context),
-              label: 'Next',
+              }),
             ),
-          ),
-        ],
-      )),
+            Padding(
+              padding: EdgeInsets.only(top: 10),
+              child: CustomElevatedButton(
+                onPressed: () => this.onContinuePressed(context),
+                label: 'Next',
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

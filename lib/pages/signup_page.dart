@@ -14,7 +14,7 @@ class SignupPageWidget extends StatefulWidget {
 class _SignupPageWidgetState extends State<SignupPageWidget> with TickerProviderStateMixin {
   /// Event handler for the "Continue" button
   void onContinuePressed(BuildContext context) async {
-    await Navigator.pushReplacement(
+    await Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => CarouselPage(),

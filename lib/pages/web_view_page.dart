@@ -19,7 +19,40 @@ class _WebViewPageWidgetState extends State<WebViewPageWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(85),
+        child: AppBar(
+          elevation: 0,
+          automaticallyImplyLeading: false,
+          backgroundColor: Colors.white,
+          title: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 30,
+              ),
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 5.0),
+                    child: GestureDetector(
+                      onTap: () => Navigator.pop(context),
+                      child: Icon(
+                        Icons.navigate_before,
+                        size: 35,
+                        color: CustomColorScheme.primaryColor,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 11,
+              ),
+            ],
+          ),
+        ),
+      ),
       body: WebView(
         initialUrl: Constants.url1,
       ),

@@ -10,10 +10,12 @@ class EmptyHomePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         mainAxisSize: MainAxisSize.max,
         children: [
-          Image.asset(
-            ImageFiles.thinking,
-            height: 350,
-            fit: BoxFit.cover,
+          Flexible(
+            child: Image.asset(
+              ImageFiles.thinking,
+              height: 350,
+              fit: BoxFit.cover,
+            ),
           ),
           SizedBox(
             height: 30,

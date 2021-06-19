@@ -16,7 +16,7 @@ class WelcomePageWidget extends StatefulWidget {
 class _WelcomePageWidgetState extends State<WelcomePageWidget> with TickerProviderStateMixin {
   /// Event handler for the Login button
   void onLoginButtonPressed(BuildContext context) async {
-    await Navigator.pushReplacement(
+    await Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => MainPageWidget(),
@@ -26,7 +26,7 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget> with TickerProvid
 
   /// Event handler for the "Create an account" button
   void onCreateAccountPressed(BuildContext context) async {
-    await Navigator.pushReplacement(
+    await Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => SignupPageWidget(),
