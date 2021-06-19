@@ -60,7 +60,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget> with TickerProviderSt
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset(ImageFiles.logo),
+                    Image.asset(
+                      ImageFiles.logo,
+                      width: 50,
+                    ),
                     SizedBox(
                       width: 20,
                     ),
