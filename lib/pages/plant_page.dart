@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutterinit/components/add_button_vertical.dart';
 import 'package:flutterinit/components/plant_info_button.dart';
 import 'package:flutterinit/constants.dart';
@@ -6,9 +7,11 @@ import 'package:flutterinit/icons.dart';
 import 'package:flutterinit/models/plant.dart';
 import 'package:flutterinit/pages/main_page.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutterinit/providers/main_providers.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
-class PlantPageWidget extends StatefulWidget {
+class PlantPageWidget extends StatefulHookWidget {
   final Plant plant;
 
   PlantPageWidget({
@@ -20,11 +23,14 @@ class PlantPageWidget extends StatefulWidget {
 }
 
 class _PlantPageWidgetState extends State<PlantPageWidget> {
-  String _infotitle = '';
-  String _plantinfo = '';
-  PanelController _pc = PanelController();
+  late ValueNotifier<String>? _infoTitle;
+  late ValueNotifier<String>? _plantInfo;
+  late List<Plant> userPlants;
+  final PanelController _pc = PanelController();
 
   void onAddPlantPressed(BuildContext context) async {
+    userPlants.add(widget.plant);
+
     await Navigator.pushReplacement(
       context,
       MaterialPageRoute(
@@ -33,9 +39,19 @@ class _PlantPageWidgetState extends State<PlantPageWidget> {
     );
   }
 
+  void onPlantInfoButtonPressed(String infoTitle, String plantInfo) {
+    _infoTitle!.value = infoTitle;
+    _plantInfo!.value = plantInfo;
+    _pc.open();
+  }
+
   //UI of the Main Page
   @override
   Widget build(BuildContext context) {
+    _infoTitle = useState('');
+    _plantInfo = useState('');
+    userPlants = useProvider(listUserPlants).state;
+
     return Scaffold(
       body: Stack(
         children: [
@@ -120,24 +136,14 @@ class _PlantPageWidgetState extends State<PlantPageWidget> {
                             child: PlantInfoButton(
                               label: 'Light',
                               icon: Icons.wb_sunny_rounded,
-                              onPressed: () {
-                                setState(() {});
-                                _infotitle = 'Light';
-                                _plantinfo = widget.plant.lightInformation;
-                                _pc.open();
-                              },
+                              onPressed: () => this.onPlantInfoButtonPressed('Light', widget.plant.lightInformation),
                             ),
                           ),
                           Flexible(
                             child: PlantInfoButton(
                               label: 'Fertilizer',
                               icon: CustomIcons.fertilizer_leaf,
-                              onPressed: () {
-                                setState(() {});
-                                _infotitle = 'Fertilizer';
-                                _plantinfo = widget.plant.fertilizerInformation;
-                                _pc.open();
-                              },
+                              onPressed: () => this.onPlantInfoButtonPressed('Fertilizer', widget.plant.fertilizerInformation),
                             ),
                           ),
                         ],
@@ -152,24 +158,14 @@ class _PlantPageWidgetState extends State<PlantPageWidget> {
                             child: PlantInfoButton(
                               label: 'Water',
                               icon: CustomIcons.watering_can,
-                              onPressed: () {
-                                setState(() {});
-                                _infotitle = 'Water';
-                                _plantinfo = widget.plant.waterInformation;
-                                _pc.open();
-                              },
+                              onPressed: () => this.onPlantInfoButtonPressed('Water', widget.plant.waterInformation),
                             ),
                           ),
                           Flexible(
                             child: PlantInfoButton(
                               label: 'Temp',
                               icon: Icons.thermostat_rounded,
-                              onPressed: () {
-                                setState(() {});
-                                _infotitle = 'Temperature';
-                                _plantinfo = widget.plant.temperatureInformation;
-                                _pc.open();
-                              },
+                              onPressed: () => this.onPlantInfoButtonPressed('Temperature', widget.plant.temperatureInformation),
                             ),
                           ),
                         ],
@@ -221,7 +217,7 @@ class _PlantPageWidgetState extends State<PlantPageWidget> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Text(
-                            _infotitle,
+                            _infoTitle!.value,
                             textAlign: TextAlign.left,
                             style: const TextStyle(
                               fontSize: 30.0,
@@ -241,7 +237,7 @@ class _PlantPageWidgetState extends State<PlantPageWidget> {
                     Padding(
                       padding: const EdgeInsets.all(20.0),
                       child: Text(
-                        _plantinfo,
+                        _plantInfo!.value,
                         textAlign: TextAlign.left,
                         style: const TextStyle(
                           fontSize: 20.0,
