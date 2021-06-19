@@ -116,10 +116,14 @@ class _HomePageState extends State<SearchPageWidget> {
               Row(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(right: 8.0),
+                    padding: const EdgeInsets.only(right: 5.0),
                     child: GestureDetector(
                       onTap: () => this.onBackButtonPressed(context),
-                      child: Icon(Icons.arrow_back),
+                      child: Icon(
+                        Icons.navigate_before,
+                        size: 35,
+                        color: CustomColorScheme.primaryColor,
+                      ),
                     ),
                   ),
                   Text(

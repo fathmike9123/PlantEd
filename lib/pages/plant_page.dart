@@ -103,7 +103,11 @@ class _PlantPageWidgetState extends State<PlantPageWidget> {
                           onTap: () {
                             Navigator.pop(context);
                           },
-                          child: Icon(Icons.arrow_back),
+                          child: Icon(
+                            Icons.navigate_before,
+                            size: 35,
+                            color: CustomColorScheme.primaryColor,
+                          ),
                         ),
                       ),
                       Flexible(
