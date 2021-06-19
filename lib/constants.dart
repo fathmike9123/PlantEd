@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Constants {
-  static final String projectName = "I will know your name";
-  static final String logoImage = 'images/logo.png';
+  static final String projectName = "PlantEd";
   static final TextStyle mainFont = GoogleFonts.lato();
   static final String url1 = 'https://homesteadbrooklyn.com/all/2017/1/17/common-insects-pests-on-houseplants';
   static final String url2 = 'https://homesteadbrooklyn.com/all/2017/1/17/common-insects-pests-on-houseplants';

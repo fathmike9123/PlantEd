@@ -5,6 +5,7 @@ class Plant {
   String fertilizerInformation;
   String temperatureInformation;
   String photoAsset;
+  String plantCardIllustration;
 
   Plant({
     required this.name,
@@ -13,5 +14,6 @@ class Plant {
     required this.fertilizerInformation,
     required this.temperatureInformation,
     required this.photoAsset,
+    required this.plantCardIllustration,
   });
 }

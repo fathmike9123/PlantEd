@@ -17,16 +17,22 @@ class _ListHomePageState extends State<ListHomePage> {
   Widget build(BuildContext context) {
     userPlants = useProvider(listUserPlants).state;
 
-    return ListView.builder(
-      itemCount: userPlants.length,
-      itemBuilder: (context, index) {
-        return Padding(
-          padding: const EdgeInsets.all(15),
-          child: PlantCard(
-            plant: userPlants[index],
-          ),
-        );
+    return NotificationListener<OverscrollIndicatorNotification>(
+      onNotification: (overscroll) {
+        overscroll.disallowGlow();
+        return true;
       },
+      child: ListView.builder(
+        itemCount: userPlants.length,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: const EdgeInsets.all(15),
+            child: PlantCard(
+              plant: userPlants[index],
+            ),
+          );
+        },
+      ),
     );
   }
 }

@@ -24,7 +24,8 @@ class PlantInfoButton extends StatelessWidget {
         width: double.maxFinite,
         child: Material(
           borderRadius: BorderRadius.circular(10),
-          elevation: 5,
+          elevation: 20,
+          shadowColor: Color(0x90EBEBEB),
           child: ElevatedButton(
             onPressed: this.onPressed,
             child: Column(

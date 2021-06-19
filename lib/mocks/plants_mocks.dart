@@ -12,6 +12,7 @@ List<Plant> mockPlants = [
         'The monstera plant prefer normal room temperatures between 68–86 °F. Since it originally comes from tropical rain forests, a similar tropical and humid atmosphere will make this plant feel right at home.',
     fertilizerInformation: 'Feeding is important for lush, new growth. Feed every 2 weeks spring through autumn with a balanced liquid fertilizer diluted by half. Feed monthly in winter.',
     photoAsset: ImageFiles.monstera,
+    plantCardIllustration: ImageFiles.cardMonstera,
   ),
   Plant(
     name: 'Pothos',
@@ -24,6 +25,7 @@ List<Plant> mockPlants = [
     fertilizerInformation:
         'Pothos needs to be fertilized with a balanced 10-10-10 or 20-20-20 fertilizer every 4-6 weeks during their growing season. Lack of nutrients can slow the growth of your pothos; thus, fertilizing them is crucial.',
     photoAsset: ImageFiles.pothos,
+    plantCardIllustration: ImageFiles.cardPothos,
   ),
   Plant(
     name: 'Echinacea Purpurea',
@@ -34,6 +36,7 @@ List<Plant> mockPlants = [
     fertilizerInformation:
         'Fertilize coneflowers in early spring, using a granular, time-release fertilizer with a ratio such as 12-6-6. Apply the fertilizer at a rate of 1 pound for every 100 square feet of garden space just before the emergence of new leaves.',
     photoAsset: ImageFiles.purpleConeFLower,
+    plantCardIllustration: ImageFiles.cardPothos,
   ),
   Plant(
     name: 'Money Plant',
@@ -45,5 +48,6 @@ List<Plant> mockPlants = [
     fertilizerInformation:
         'You really only need to fertilize Chinese money plants once a month. ... Use a liquid organic houseplant fertilizer by diluting it to half of the recommended strength and then watering the plant with it. Do not fertilize a dry plant; instead water it first and then fertilize the next day.',
     photoAsset: ImageFiles.moneyPlant,
+    plantCardIllustration: ImageFiles.cardMoneyPlant,
   ),
 ];

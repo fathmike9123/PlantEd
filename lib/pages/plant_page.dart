@@ -31,7 +31,7 @@ class _PlantPageWidgetState extends State<PlantPageWidget> {
   void onAddPlantPressed(BuildContext context) async {
     userPlants.add(widget.plant);
 
-    await Navigator.pushReplacement(
+    await Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => MainPageWidget(),
@@ -63,6 +63,22 @@ class _PlantPageWidgetState extends State<PlantPageWidget> {
                 image: AssetImage(widget.plant.photoAsset),
                 fit: BoxFit.fitHeight,
               ),
+            ),
+          ),
+
+          // Gradient
+          Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Color(0xFFFFFFFF),
+                  Colors.transparent,
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                stops: [0, 0.4],
+              ),
+              borderRadius: BorderRadius.circular(10),
             ),
           ),
 
