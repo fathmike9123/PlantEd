@@ -19,7 +19,7 @@ class _HomePageState extends State<SearchPageWidget> {
   List<Plant> selectedPlants = [];
 
   void onSearchButtonPressed(BuildContext context, Plant selectedPlant) async {
-    await Navigator.pushReplacement(
+    await Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => PlantPageWidget(
