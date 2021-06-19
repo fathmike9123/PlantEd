@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutterinit/components/plant_card.dart';
-import 'package:flutterinit/models/plant.dart';
-import 'package:flutterinit/providers/main_providers.dart';
+import 'package:planted/components/plant_card.dart';
+import 'package:planted/models/plant.dart';
+import 'package:planted/providers/main_providers.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class ListHomePage extends StatefulHookWidget {

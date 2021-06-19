@@ -1,4 +1,4 @@
-package com.example.flutterinit
+package com.example.planted
 
 import io.flutter.embedding.android.FlutterActivity
 

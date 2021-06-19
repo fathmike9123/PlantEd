@@ -1,10 +1,10 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterinit/constants.dart';
-import 'package:flutterinit/mocks/plants_mocks.dart';
-import 'package:flutterinit/models/plant.dart';
-import 'package:flutterinit/pages/camera_page.dart';
-import 'package:flutterinit/pages/plant_page.dart';
+import 'package:planted/constants.dart';
+import 'package:planted/mocks/plants_mocks.dart';
+import 'package:planted/models/plant.dart';
+import 'package:planted/pages/camera_page.dart';
+import 'package:planted/pages/plant_page.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
 class SearchPageWidget extends StatefulWidget {

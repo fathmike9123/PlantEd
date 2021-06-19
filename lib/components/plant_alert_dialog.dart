@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutterinit/constants.dart';
-import 'package:flutterinit/mocks/plants_mocks.dart';
-import 'package:flutterinit/models/responses/plant_image_response.dart';
-import 'package:flutterinit/pages/plant_page.dart';
+import 'package:planted/constants.dart';
+import 'package:planted/mocks/plants_mocks.dart';
+import 'package:planted/models/responses/plant_image_response.dart';
+import 'package:planted/pages/plant_page.dart';
 
 class PlantAlertDialog extends StatefulWidget {
   final List<PlantResults> listOfPlantResults;

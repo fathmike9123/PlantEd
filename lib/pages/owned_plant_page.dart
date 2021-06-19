@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutterinit/components/plant_info_button.dart';
-import 'package:flutterinit/constants.dart';
-import 'package:flutterinit/icons.dart';
-import 'package:flutterinit/models/plant.dart';
+import 'package:planted/components/plant_info_button.dart';
+import 'package:planted/constants.dart';
+import 'package:planted/icons.dart';
+import 'package:planted/models/plant.dart';
 
 import 'package:flutter/widgets.dart';
-import 'package:flutterinit/providers/main_providers.dart';
+import 'package:planted/providers/main_providers.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 

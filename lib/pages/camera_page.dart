@@ -1,11 +1,11 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_overlay_loader/flutter_overlay_loader.dart';
-import 'package:flutterinit/components/plant_alert_dialog.dart';
-import 'package:flutterinit/constants.dart';
-import 'package:flutterinit/models/requests/plant_image_request.dart';
-import 'package:flutterinit/models/responses/plant_image_response.dart';
-import 'package:flutterinit/services/plant_service.dart';
+import 'package:planted/components/plant_alert_dialog.dart';
+import 'package:planted/constants.dart';
+import 'package:planted/models/requests/plant_image_request.dart';
+import 'package:planted/models/responses/plant_image_response.dart';
+import 'package:planted/services/plant_service.dart';
 
 class CameraPage extends StatefulWidget {
   final CameraDescription camera;

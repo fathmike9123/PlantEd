@@ -1,6 +1,6 @@
 // For state management
 
-import 'package:flutterinit/models/plant.dart';
+import 'package:planted/models/plant.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 

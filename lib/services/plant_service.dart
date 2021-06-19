@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:flutterinit/models/requests/plant_image_request.dart';
-import 'package:flutterinit/models/responses/plant_image_response.dart';
+import 'package:planted/models/requests/plant_image_request.dart';
+import 'package:planted/models/responses/plant_image_response.dart';
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
 import 'package:path/path.dart';

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutterinit/components/custom_elevated_button.dart';
-import 'package:flutterinit/components/custom_flat_button.dart';
-import 'package:flutterinit/constants.dart';
-import 'package:flutterinit/pages/signup_page.dart';
-import 'package:flutterinit/pages/welcome_back_page.dart';
+import 'package:planted/components/custom_elevated_button.dart';
+import 'package:planted/components/custom_flat_button.dart';
+import 'package:planted/constants.dart';
+import 'package:planted/pages/signup_page.dart';
+import 'package:planted/pages/welcome_back_page.dart';
 import '../utils.dart';
 
 class LoginPageWidget extends StatefulWidget {

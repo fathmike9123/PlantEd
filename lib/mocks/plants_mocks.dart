@@ -1,5 +1,5 @@
-import 'package:flutterinit/constants.dart';
-import 'package:flutterinit/models/plant.dart';
+import 'package:planted/constants.dart';
+import 'package:planted/models/plant.dart';
 
 List<Plant> mockPlants = [
   Plant(

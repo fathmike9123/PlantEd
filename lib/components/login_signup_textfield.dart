@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterinit/constants.dart';
+import 'package:planted/constants.dart';
 
 class LoginSignupTextfield extends StatelessWidget {
   /// Text to show in field

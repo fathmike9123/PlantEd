@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterinit/constants.dart';
+import 'package:planted/constants.dart';
 
 class OwnedPlantButton extends StatelessWidget {
   /// Text to show on button

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutterinit/components/custom_square_button.dart';
-import 'package:flutterinit/constants.dart';
-import 'package:flutterinit/pages/web_view_page.dart';
+import 'package:planted/components/custom_square_button.dart';
+import 'package:planted/constants.dart';
+import 'package:planted/pages/web_view_page.dart';
 
 class EncyclopediaPage extends StatefulWidget {
   const EncyclopediaPage({Key? key}) : super(key: key);

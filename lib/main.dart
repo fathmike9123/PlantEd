@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:flutterinit/constants.dart';
-import 'package:flutterinit/pages/login_page.dart';
+import 'package:planted/constants.dart';
+import 'package:planted/pages/login_page.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 void main() async {

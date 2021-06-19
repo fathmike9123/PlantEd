@@ -1,8 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterinit/components/carousel_card.dart';
-import 'package:flutterinit/components/custom_elevated_button.dart';
-import 'package:flutterinit/pages/welcome_back_page.dart';
+import 'package:planted/components/carousel_card.dart';
+import 'package:planted/components/custom_elevated_button.dart';
+import 'package:planted/pages/welcome_back_page.dart';
 import '../constants.dart';
 
 class CarouselPage extends StatefulWidget {

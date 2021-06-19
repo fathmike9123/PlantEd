@@ -1,12 +1,12 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutterinit/models/plant.dart';
-import 'package:flutterinit/pages/empty_home_page.dart';
-import 'package:flutterinit/pages/encyclopedia_page.dart';
-import 'package:flutterinit/pages/list_home_page.dart';
-import 'package:flutterinit/pages/plant_search_page.dart';
-import 'package:flutterinit/providers/main_providers.dart';
+import 'package:planted/models/plant.dart';
+import 'package:planted/pages/empty_home_page.dart';
+import 'package:planted/pages/encyclopedia_page.dart';
+import 'package:planted/pages/list_home_page.dart';
+import 'package:planted/pages/plant_search_page.dart';
+import 'package:planted/providers/main_providers.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../constants.dart';
 

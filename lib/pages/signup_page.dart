@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutterinit/components/custom_elevated_button.dart';
-import 'package:flutterinit/components/login_password_textfield.dart';
-import 'package:flutterinit/components/login_signup_textfield.dart';
-import 'package:flutterinit/constants.dart';
-import 'package:flutterinit/pages/carousel_page.dart';
+import 'package:planted/components/custom_elevated_button.dart';
+import 'package:planted/components/login_password_textfield.dart';
+import 'package:planted/components/login_signup_textfield.dart';
+import 'package:planted/constants.dart';
+import 'package:planted/pages/carousel_page.dart';
 import '../utils.dart';
 
 class SignupPageWidget extends StatefulWidget {

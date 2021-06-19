@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterinit/constants.dart';
+import 'package:planted/constants.dart';
 
 class CustomSquareButton extends StatelessWidget {
   /// Text to show on button
