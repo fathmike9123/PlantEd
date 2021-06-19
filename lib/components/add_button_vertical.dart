@@ -16,8 +16,8 @@ class VerticalAddButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        height: 325,
-        width: 120,
+        height: double.maxFinite,
+        width: double.maxFinite,
         child: Material(
           borderRadius: BorderRadius.circular(10),
           elevation: 5,

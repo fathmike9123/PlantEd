@@ -123,9 +123,10 @@ class _PlantPageWidgetState extends State<PlantPageWidget> {
                 color: CustomColorScheme.primaryColorSand,
               ),
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(10.0),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.max,
                   children: [
                     Flexible(
                       child: Column(
