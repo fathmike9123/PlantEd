@@ -60,7 +60,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> with TickerProviderSt
                 Text(
                   'Start Learning',
                   textAlign: TextAlign.left,
-                  style: const TextStyle(
+                  style: Constants.mainFont.copyWith(
                     fontSize: 34.0,
                     fontWeight: FontWeight.bold,
                   ),
@@ -68,7 +68,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> with TickerProviderSt
                 Text(
                   'Plant care and education',
                   textAlign: TextAlign.left,
-                  style: const TextStyle(
+                  style: Constants.mainFont.copyWith(
                     fontSize: 18.0,
                     fontWeight: FontWeight.normal,
                   ),

@@ -87,7 +87,7 @@ class _PlantPageWidgetState extends State<PlantPageWidget> {
                   ),
                   Text(
                     widget.plant.name,
-                    style: const TextStyle(
+                    style: Constants.mainFont.copyWith(
                       fontSize: 34.0,
                       fontWeight: FontWeight.normal,
                     ),

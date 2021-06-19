@@ -1,5 +1,6 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterinit/constants.dart';
 import 'package:flutterinit/mocks/plants_mocks.dart';
 import 'package:flutterinit/models/plant.dart';
 import 'package:flutterinit/pages/camera_page.dart';
@@ -123,7 +124,7 @@ class _HomePageState extends State<SearchPageWidget> {
                   ),
                   Text(
                     'New Plants',
-                    style: const TextStyle(
+                    style: Constants.mainFont.copyWith(
                       fontSize: 34.0,
                       fontWeight: FontWeight.normal,
                     ),

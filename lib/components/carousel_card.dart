@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterinit/constants.dart';
 
 class CarouselCard extends StatelessWidget {
   /// Text to show on button
@@ -26,7 +27,7 @@ class CarouselCard extends StatelessWidget {
             child: Text(
               this.title,
               textAlign: TextAlign.center,
-              style: const TextStyle(
+              style: Constants.mainFont.copyWith(
                 fontSize: 30.0,
                 fontWeight: FontWeight.bold,
               ),
@@ -40,7 +41,7 @@ class CarouselCard extends StatelessWidget {
             child: Text(
               this.description,
               textAlign: TextAlign.center,
-              style: const TextStyle(
+              style: Constants.mainFont.copyWith(
                 fontSize: 18.0,
                 fontWeight: FontWeight.normal,
               ),

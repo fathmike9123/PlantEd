@@ -62,7 +62,7 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget> with TickerProvid
                 Text(
                   'Welcome Back!',
                   textAlign: TextAlign.left,
-                  style: const TextStyle(
+                  style: Constants.mainFont.copyWith(
                     fontSize: 34.0,
                     fontWeight: FontWeight.bold,
                   ),
@@ -70,7 +70,7 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget> with TickerProvid
                 Text(
                   'Sign in to see your plant tasks for today',
                   textAlign: TextAlign.left,
-                  style: const TextStyle(
+                  style: Constants.mainFont.copyWith(
                     fontSize: 18.0,
                     fontWeight: FontWeight.normal,
                   ),

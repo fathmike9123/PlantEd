@@ -43,7 +43,7 @@ class PlantInfoButton extends StatelessWidget {
                 ),
                 Text(
                   this.label,
-                  style: TextStyle(
+                  style: Constants.mainFont.copyWith(
                     fontSize: 18.0,
                     color: CustomColorScheme.primaryColor2,
                   ),

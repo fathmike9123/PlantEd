@@ -29,7 +29,7 @@ class CustomSquareButton extends StatelessWidget {
             children: [
               Text(
                 this.label,
-                style: TextStyle(
+                style: Constants.mainFont.copyWith(
                   fontSize: 20.0,
                   color: Colors.grey,
                 ),

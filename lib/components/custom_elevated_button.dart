@@ -24,7 +24,7 @@ class CustomElevatedButton extends StatelessWidget {
           onPressed: this.onPressed,
           child: Text(
             this.label,
-            style: TextStyle(color: Colors.white),
+            style: Constants.mainFont.copyWith(color: Colors.white),
           ),
           style: ButtonStyle(
             padding: MaterialStateProperty.all(EdgeInsets.symmetric(vertical: 15)),

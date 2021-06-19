@@ -50,7 +50,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> with TickerProvider
                 Text(
                   'Sign Up',
                   textAlign: TextAlign.center,
-                  style: const TextStyle(
+                  style: Constants.mainFont.copyWith(
                     fontSize: 34.0,
                     fontWeight: FontWeight.bold,
                   ),
@@ -58,7 +58,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget> with TickerProvider
                 Text(
                   'Sign up to begin learning',
                   textAlign: TextAlign.center,
-                  style: const TextStyle(
+                  style: Constants.mainFont.copyWith(
                     fontSize: 18.0,
                     fontWeight: FontWeight.normal,
                   ),

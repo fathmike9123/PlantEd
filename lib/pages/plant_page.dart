@@ -93,7 +93,7 @@ class _PlantPageWidgetState extends State<PlantPageWidget> {
                       Flexible(
                         child: Text(
                           widget.plant.name,
-                          style: const TextStyle(
+                          style: Constants.mainFont.copyWith(
                             fontSize: 34.0,
                             fontWeight: FontWeight.normal,
                           ),
@@ -219,7 +219,7 @@ class _PlantPageWidgetState extends State<PlantPageWidget> {
                           Text(
                             _infoTitle!.value,
                             textAlign: TextAlign.left,
-                            style: const TextStyle(
+                            style: Constants.mainFont.copyWith(
                               fontSize: 30.0,
                               fontWeight: FontWeight.bold,
                             ),
@@ -239,7 +239,7 @@ class _PlantPageWidgetState extends State<PlantPageWidget> {
                       child: Text(
                         _plantInfo!.value,
                         textAlign: TextAlign.left,
-                        style: const TextStyle(
+                        style: Constants.mainFont.copyWith(
                           fontSize: 20.0,
                           fontWeight: FontWeight.normal,
                         ),

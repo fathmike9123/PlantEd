@@ -22,28 +22,28 @@ class EmptyHomePage extends StatelessWidget {
             child: RichText(
               textAlign: TextAlign.center,
               text: TextSpan(
-                style: TextStyle(
+                style: Constants.mainFont.copyWith(
                   fontSize: 14.0,
                   color: Colors.black,
                 ),
                 children: <TextSpan>[
                   TextSpan(
                     text: 'You don’t have any plants yet, use the ',
-                    style: TextStyle(
+                    style: Constants.mainFont.copyWith(
                       fontSize: 20,
                       color: CustomColorScheme.grey,
                     ),
                   ),
                   TextSpan(
                     text: ' plus button',
-                    style: TextStyle(
+                    style: Constants.mainFont.copyWith(
                       fontSize: 20,
                       color: CustomColorScheme.primaryColor,
                     ),
                   ),
                   TextSpan(
                     text: ' to add a new member to your plant family.',
-                    style: TextStyle(
+                    style: Constants.mainFont.copyWith(
                       fontSize: 20,
                       color: CustomColorScheme.grey,
                     ),

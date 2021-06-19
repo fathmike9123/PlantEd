@@ -30,7 +30,7 @@ class OwnedPlantButton extends StatelessWidget {
                   child: Text(
                     'Monstera',
                     textAlign: TextAlign.left,
-                    style: const TextStyle(
+                    style: Constants.mainFont.copyWith(
                       color: Colors.black,
                       fontSize: 40.0,
                       fontWeight: FontWeight.normal,

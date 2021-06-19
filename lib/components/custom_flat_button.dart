@@ -24,7 +24,7 @@ class CustomFlatButton extends StatelessWidget {
           onPressed: this.onPressed,
           child: Text(
             this.label,
-            style: TextStyle(color: CustomColorScheme.grey),
+            style: Constants.mainFont.copyWith(color: CustomColorScheme.grey),
           ),
           style: ButtonStyle(
             padding: MaterialStateProperty.all(EdgeInsets.symmetric(vertical: 15)),

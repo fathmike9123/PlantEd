@@ -14,7 +14,7 @@ class LoginSignupTextfield extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
       child: TextField(
-        style: TextStyle(
+        style: Constants.mainFont.copyWith(
           color: Colors.black,
           height: 1,
           fontSize: 15.0,
