@@ -1,6 +1,6 @@
-# plant_ed
+# PlantEd
 
-A new Flutter project.
+A new Flutter project focused on Gardening.
 
 ## Resources
 
