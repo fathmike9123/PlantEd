@@ -1,11 +1,8 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterinit/components/add_button.dart';
-import 'package:flutterinit/components/empty_home_page.dart';
-import 'package:flutterinit/pages/camera_page.dart';
+import 'package:flutterinit/pages/empty_home_page.dart';
+import 'package:flutterinit/pages/encyclopedia_page.dart';
 import 'package:flutterinit/pages/plant_search_page.dart';
-import 'package:flutterinit/pages/web_view_page.dart';
-import 'package:flutterinit/components/custom_square_button.dart';
 import '../constants.dart';
 
 class MainPageWidget extends StatefulWidget {
@@ -14,35 +11,42 @@ class MainPageWidget extends StatefulWidget {
 }
 
 class _HomePageState extends State<MainPageWidget> {
-  void openWebViewPage() async {
-    await Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => WebViewPageWidget(),
-      ),
-    );
-  }
+  int _currentNavBarIndex = 0;
 
   void onAddPressed(BuildContext context) async {
-    await Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => SearchPageWidget(),
-      ),
-    );
-  }
-
-  // Open the camera page
-  void openCamera() async {
     List<CameraDescription> cameras = await availableCameras();
     CameraDescription firstCamera = cameras.first;
 
     await Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => CameraPage(camera: firstCamera),
+        builder: (context) => SearchPageWidget(
+          camera: firstCamera,
+        ),
       ),
     );
+  }
+
+  Widget setBody() {
+    switch (_currentNavBarIndex) {
+      case 0:
+        return EmptyHomePage();
+      case 1:
+        return EncyclopediaPage();
+      default:
+        return Container();
+    }
+  }
+
+  String setTitle() {
+    switch (_currentNavBarIndex) {
+      case 0:
+        return 'My Plants';
+      case 1:
+        return 'Encyclopedia';
+      default:
+        return '';
+    }
   }
 
   //UI of the Main Page
@@ -62,7 +66,7 @@ class _HomePageState extends State<MainPageWidget> {
                 height: 30,
               ),
               Text(
-                'My Plants',
+                setTitle(),
                 style: const TextStyle(
                   fontSize: 34.0,
                   fontWeight: FontWeight.normal,
@@ -76,81 +80,41 @@ class _HomePageState extends State<MainPageWidget> {
         ),
       ),
       backgroundColor: Colors.white,
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            Container(
-              height: 120.0,
-              child: DrawerHeader(
-                decoration: BoxDecoration(
-                  color: CustomColorScheme.primaryColor,
-                ),
-                child: Text(
-                  'Encyclopedia',
-                  textAlign: TextAlign.left,
-                  style: const TextStyle(
-                    fontSize: 30.0,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+      body: setBody(),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add_rounded),
+        onPressed: () => this.onAddPressed(context),
+        backgroundColor: CustomColorScheme.primaryColor,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+        clipBehavior: Clip.antiAlias,
+        notchMargin: 10,
+        shape: CircularNotchedRectangle(),
+        child: BottomNavigationBar(
+          currentIndex: this._currentNavBarIndex,
+          selectedItemColor: CustomColorScheme.primaryColor,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          onTap: (int selectedIndex) {
+            setState(() {
+              this._currentNavBarIndex = selectedIndex;
+            });
+          },
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home,
               ),
+              label: '',
             ),
-            ListTile(
-              title: CustomSquareButton(
-                onPressed: openWebViewPage,
-                label: 'Insects',
-                image: ImageFiles.insect,
-                url: 1,
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.menu_book_rounded,
               ),
+              label: '',
             ),
-            ListTile(
-              title: CustomSquareButton(
-                onPressed: openWebViewPage,
-                label: 'Fungus',
-                image: ImageFiles.leaf,
-                url: 2,
-              ),
-            )
           ],
-        ),
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          EmptyHomePage(),
-          Row(
-            children: [
-              Expanded(
-                child: CustomAddButton(
-                  onPressed: () => this.onAddPressed(context),
-                  icon: Icons.add_rounded,
-                ),
-              ),
-            ],
-          )
-        ],
-      ),
-      bottomNavigationBar: Builder(
-        builder: (context) => BottomAppBar(
-          child: SizedBox(
-            height: 70,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                IconButton(
-                  icon: Icon(Icons.menu_book_rounded),
-                  onPressed: () => Scaffold.of(context).openDrawer(),
-                ),
-                SizedBox(width: 200),
-                IconButton(
-                  icon: Icon(Icons.camera_alt),
-                  onPressed: this.openCamera,
-                ),
-              ],
-            ),
-          ),
         ),
       ),
     );

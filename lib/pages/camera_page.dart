@@ -89,39 +89,6 @@ class _CameraPageState extends State<CameraPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(75),
-        child: AppBar(
-          elevation: 0,
-          automaticallyImplyLeading: false,
-          backgroundColor: Colors.white,
-          title: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: 30,
-              ),
-              Row(
-                children: [
-                  BackButton(
-                    onPressed: this.onBackButtonPressed,
-                  ),
-                  Text(
-                    'Scan Plants',
-                    style: const TextStyle(
-                      fontSize: 34.0,
-                      fontWeight: FontWeight.normal,
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 11,
-              ),
-            ],
-          ),
-        ),
-      ),
       // You must wait until the controller is initialized before displaying the
       // camera preview. Use a FutureBuilder to display a loading spinner until the
       // controller has finished initializing.
@@ -129,12 +96,17 @@ class _CameraPageState extends State<CameraPage> {
         future: _initializeControllerFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
-            // If the Future is complete, display the preview.
-            final scale = 1 / (_controller.value.aspectRatio * MediaQuery.of(context).size.aspectRatio);
+            final size = MediaQuery.of(context).size;
+            var scale = size.aspectRatio * _controller.value.aspectRatio;
+
+            // to prevent scaling down, invert the value
+            if (scale < 1) scale = 1 / scale;
+
             return Transform.scale(
               scale: scale,
-              alignment: Alignment.topCenter,
-              child: CameraPreview(_controller),
+              child: Center(
+                child: CameraPreview(_controller),
+              ),
             );
           } else {
             // Otherwise, display a loading indicator.

@@ -1,10 +1,16 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterinit/mocks/plants_mocks.dart';
 import 'package:flutterinit/models/plant.dart';
+import 'package:flutterinit/pages/camera_page.dart';
 import 'package:flutterinit/pages/plant_page.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
 class SearchPageWidget extends StatefulWidget {
+  final CameraDescription camera;
+
+  SearchPageWidget({required this.camera});
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -30,7 +36,13 @@ class _HomePageState extends State<SearchPageWidget> {
   List<Widget> generateListTiles() {
     List<Widget> listTiles = [];
 
-    selectedPlants.forEach((Plant plant) {
+    // If no plants have been selected, then display ALL of them
+    List<Plant> dataSource = selectedPlants;
+    if (selectedPlants.isEmpty) {
+      dataSource = mockPlants;
+    }
+
+    dataSource.forEach((Plant plant) {
       listTiles.add(
         ListTile(
           title: Text(plant.name),
@@ -44,7 +56,7 @@ class _HomePageState extends State<SearchPageWidget> {
     return listTiles;
   }
 
-  Widget buildBody() {
+  Widget buildFloatingSearchBarBody() {
     return ClipRRect(
       borderRadius: BorderRadius.circular(8),
       child: Material(
@@ -69,16 +81,24 @@ class _HomePageState extends State<SearchPageWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Padding(
-        padding: const EdgeInsets.all(0.0),
-        child: FloatingSearchBar(
-          hint: 'Search...',
-          transitionCurve: Curves.easeInOutCubic,
-          transition: CircularFloatingSearchBarTransition(),
-          physics: const BouncingScrollPhysics(),
-          builder: (context, _) => buildBody(),
-          onQueryChanged: onSearchChanged,
-        ),
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          // Camera on bottom
+          CameraPage(camera: widget.camera),
+
+          // Search bar on top
+          FloatingSearchBar(
+            automaticallyImplyBackButton: false,
+            hint: 'Search for plants',
+            margins: EdgeInsets.all(20),
+            transitionCurve: Curves.easeInOutCubic,
+            transition: CircularFloatingSearchBarTransition(),
+            physics: const BouncingScrollPhysics(),
+            builder: (context, _) => buildFloatingSearchBarBody(),
+            onQueryChanged: onSearchChanged,
+          ),
+        ],
       ),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(75),
@@ -94,8 +114,12 @@ class _HomePageState extends State<SearchPageWidget> {
               ),
               Row(
                 children: [
-                  BackButton(
-                    onPressed: () => this.onBackButtonPressed(context),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8.0),
+                    child: GestureDetector(
+                      onTap: () => this.onBackButtonPressed(context),
+                      child: Icon(Icons.arrow_back),
+                    ),
                   ),
                   Text(
                     'New Plants',
