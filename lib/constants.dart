@@ -36,4 +36,5 @@ class ImageFiles {
   static final String cardMonstera = 'images/card_monstera.png';
   static final String cardPothos = 'images/card_pothos.png';
   static final String cardMoneyPlant = 'images/card_money_plant.png';
+  static final String logo = 'images/logo.png';
 }

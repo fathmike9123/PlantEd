@@ -57,21 +57,22 @@ class _LoginPageWidgetState extends State<LoginPageWidget> with TickerProviderSt
                 SizedBox(
                   height: 50.0,
                 ),
-                Text(
-                  'Start Learning',
-                  textAlign: TextAlign.left,
-                  style: Constants.mainFont.copyWith(
-                    fontSize: 34.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(
-                  'Plant care and education',
-                  textAlign: TextAlign.left,
-                  style: Constants.mainFont.copyWith(
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.normal,
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(ImageFiles.logo),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Text(
+                      'PlantEd',
+                      textAlign: TextAlign.left,
+                      style: Constants.mainFont.copyWith(
+                        fontSize: 46.0,
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                  ],
                 ),
                 Container(
                   width: 300,
