@@ -1,4 +1,5 @@
 import 'package:camera/camera.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:planted/models/plant.dart';
@@ -6,6 +7,7 @@ import 'package:planted/pages/empty_home_page.dart';
 import 'package:planted/pages/encyclopedia_page.dart';
 import 'package:planted/pages/list_home_page.dart';
 import 'package:planted/pages/plant_search_page.dart';
+import 'package:planted/pages/welcome_back_page.dart';
 import 'package:planted/providers/main_providers.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../constants.dart';
@@ -16,6 +18,7 @@ class MainPageWidget extends StatefulHookWidget {
 }
 
 class _HomePageState extends State<MainPageWidget> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   late List<Plant> userPlants;
   int _currentNavBarIndex = 0;
 
@@ -65,30 +68,58 @@ class _HomePageState extends State<MainPageWidget> {
     userPlants = useProvider(listUserPlants).state;
 
     return Scaffold(
+      key: _scaffoldKey,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(85),
         child: AppBar(
           elevation: 0,
           automaticallyImplyLeading: false,
           backgroundColor: Colors.white,
-          title: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: 30,
-              ),
-              Text(
-                setTitle(),
-                style: Constants.mainFont.copyWith(
-                  fontSize: 34.0,
-                  fontWeight: FontWeight.normal,
+          title: Padding(
+            padding: EdgeInsets.only(top: 30, bottom: 11),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                IconButton(
+                  onPressed: () {
+                    _scaffoldKey.currentState!.openDrawer();
+                  },
+                  icon: Icon(Icons.menu),
                 ),
-              ),
-              SizedBox(
-                height: 11,
-              ),
-            ],
+                Text(
+                  setTitle(),
+                  style: Constants.mainFont.copyWith(
+                    fontSize: 34.0,
+                    fontWeight: FontWeight.normal,
+                  ),
+                ),
+              ],
+            ),
           ),
+        ),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.white,
+              ),
+              child: Image.asset(ImageFiles.logo),
+            ),
+            ListTile(
+              title: Text('Sign Out'),
+              onTap: () async {
+                await FirebaseAuth.instance.signOut();
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => WelcomePageWidget(),
+                  ),
+                );
+              },
+            ),
+          ],
         ),
       ),
       backgroundColor: Colors.white,

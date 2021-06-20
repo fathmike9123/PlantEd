@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "891293371716",
+    "project_id": "planted-ec760",
+    "storage_bucket": "planted-ec760.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:891293371716:android:966f66f7f49218234c9b11",
+        "android_client_info": {
+          "package_name": "com.example.planted"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "891293371716-c501srm34u53a0hdb68k0smuf51kho4t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeI5w2PXR72Zkaex4qIFbbFe3n3aLLqiU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "891293371716-c501srm34u53a0hdb68k0smuf51kho4t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,7 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:planted/components/custom_elevated_button.dart';
 import 'package:planted/components/custom_flat_button.dart';
-import 'package:planted/components/login_password_textfield.dart';
 import 'package:planted/components/login_signup_textfield.dart';
 import 'package:planted/constants.dart';
 import 'package:planted/pages/signup_page.dart';
@@ -14,14 +14,40 @@ class WelcomePageWidget extends StatefulWidget {
 }
 
 class _WelcomePageWidgetState extends State<WelcomePageWidget> with TickerProviderStateMixin {
+  String email = '';
+  String password = '';
+
   /// Event handler for the Login button
   void onLoginButtonPressed(BuildContext context) async {
-    await Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => MainPageWidget(),
-      ),
-    );
+    if (email.isEmpty || password.isEmpty) {
+      showSnackbar('Please make sure that all fields are filled.');
+      return;
+    }
+
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: this.email.trim(),
+        password: this.password.trim(),
+      );
+
+      await Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => MainPageWidget(),
+        ),
+      );
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        showSnackbar('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        showSnackbar('Wrong password provided for that user.');
+      }
+    }
+  }
+
+  void showSnackbar(String message) {
+    final snackBar = SnackBar(content: Text(message));
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
   /// Event handler for the "Create an account" button
@@ -80,10 +106,17 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget> with TickerProvid
                   child: Image.asset(ImageFiles.welcome),
                 ),
                 LoginSignupTextfield(
-                  label: 'Email or Username',
+                  label: 'Email',
+                  onTextChanged: (value) {
+                    this.email = value;
+                  },
                 ),
-                LoginPasswordTextfield(
+                LoginSignupTextfield(
                   label: 'Password',
+                  obscureText: true,
+                  onTextChanged: (value) {
+                    this.password = value;
+                  },
                 ),
                 SizedBox(
                   height: 30,
